@@ -53,50 +53,25 @@ public:
 	void save();
 
 private:
-	class Directory_Entry /* Exercise 1.6: Please complete the definition of the Directory_Entry class here. - Ed/Kent */
+	class Directory_Entry
 	{
 	public:
-	
+		Directory_Entry() {} // Default no-argument constructor 
+		Directory_Entry(std::string the_name, std::string the_number) {
+			// constructor not implemented yet
+		}
+		std::string get_name() const {
+			return ""; // method not implemented yet
+		}
+		std::string get_number() const {
+			return ""; // method not implemented yet
+		}
+		void set_number(const std::string& new_number) {
+			// method not implemented yet
+		}
 	private:
 
 	};
 
-	// Private Functions
-	/** Searches the array of directory entries for the name.
-		@param name The name to be found
-		@return The index of the entry containing the name, or size
-		if the name is not found
-		*/
-	int find(const std::string& name) const;
-
-	/** Adds a new entry with the given name and number to the array
-		of directory entries.
-		@param name The name to be added
-		@param number The number to be added
-		*/
-	void add(const std::string& name, const std::string& number);
-
-	/** Removes the entry at the given index.
-		@param index The index of the entry to be removed
-		*/
-	void remove_entry(int index);
-
-	/** Creates an new array of directory entries with twice the
-		capacity of the current one.
-		*/
-	void reallocate();
-
-	/** The number of entries in the directory. */
-	int size;
-	/** The current capacity of the array. */
-	int capacity;
-	/** Pointer to the array containing the directory data. */
-	Directory_Entry* the_directory;
-	/** The name of the data file that contains the directory data. */
-	std::string source_name;
-	/** Boolean flag to indicate whether the directory was
-		modified since it was either loaded or saved. */
-	bool modified;
-};
 
 #endif
