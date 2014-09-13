@@ -87,9 +87,11 @@ void do_lookup_entry(Phone_Directory& the_directory)
 
 void do_remove_entry(Phone_Directory& the_directory) // Exercise 1.8: please complete the function do_remove_entry - Ed/Kent
 {
+	//Tyler Reardon: exercise 1.8
 	string name;
 	cout << "Enter name: ";
 	getline(cin, name);
+	
 	// Complete the rest of this function 
 	
 }

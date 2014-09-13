@@ -1,6 +1,7 @@
 #ifndef ARRAY_BASED_PD_H_
 #define ARRAY_BASED_PD_H_
 #include <string>
+using namespace std;
 
 /** Specification file for the array-based phone directory.
  */
@@ -57,23 +58,64 @@ private:
 	{
 	public:
 		///////Tyler Reardon: Exercise 1.6
+		string name;
+		string number;
+
 		Directory_Entry() {} // Default no-argument constructor 
 		Directory_Entry(std::string the_name, std::string the_number) {
 			name = the_name; //assign the_name to name variable
 			number = the_number; //assign the_number to number variable
 		}
-		std::string get_name() const {
+
+		string get_name() const {
 			return name; // return name
 		}
-		std::string get_number() const {
+		string get_number() const {
 			return number; // return number
 		}
 		void set_number(const std::string& new_number) {
 			number = new_number; //assigns new_number to number variable
 		}
-	private:
-
 	};
+
+	// Private Functions
+	/** Searches the array of directory entries for the name.
+		+		@param name The name to be found
+		+		@return The index of the entry containing the name, or size
+		+		if the name is not found
+		+		*/
+	int find(const std::string& name) const;
+
+	/** Adds a new entry with the given name and number to the array
+	+		of directory entries.
+	+		@param name The name to be added
+	+		@param number The number to be added
+	+		*/
+	void add(const std::string& name, const std::string& number);
+
+	/** Removes the entry at the given index.
+	+		@param index The index of the entry to be removed
+	+		*/
+	void remove_entry(int index);
+
+	/** Creates an new array of directory entries with twice the
+	+		capacity of the current one.
+	+		*/
+	void reallocate();
+
+	/** The number of entries in the directory. */
+	int size;
+	/** The current capacity of the array. */
+	int capacity;
+	/** Pointer to the array containing the directory data. */
+	Directory_Entry* the_directory;
+	/** The name of the data file that contains the directory data. */
+	std::string source_name;
+	/** Boolean flag to indicate whether the directory was
+	+		modified since it was either loaded or saved. */
+	bool modified;
+
+};
 
 
 #endif
