@@ -93,7 +93,17 @@ void do_remove_entry(Phone_Directory& the_directory) // Exercise 1.8: please com
 	getline(cin, name);
 	
 	// Complete the rest of this function 
-	//the_directory.remove_entry(name); //sandra Tully
+	string success = the_directory.remove_entry(name); //sandra Tully
+	if (success == "")
+	{
+		cout << "Person not in directory" << endl;
+
+	}
+	else
+	{
+		cout << "The number " << success << "has been removed from the directory" << endl;
+	}
+	
 }
 
 void do_save(Phone_Directory& the_directory)
